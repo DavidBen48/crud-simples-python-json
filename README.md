@@ -1,13 +1,15 @@
 <h1> === SISTEMA CRUD BÁSICO === </h1>
+<br>
+O Sistema CRUD Básico é um projeto simples, mas eficiente, que permite gerenciar um estoque de produtos de forma intuitiva. Ele foi desenvolvido utilizando Python e JSON, garantindo a persistência dos dados mesmo após o fechamento do programa.
 
-> O Sistema CRUD Básico é um projeto simples, mas eficiente, que permite gerenciar um estoque de produtos de forma intuitiva. Ele foi desenvolvido utilizando Python e JSON, garantindo a persistência dos dados mesmo após o fechamento do programa.
-
+<br>
 <h3> Foram utilizados dois arquivos principais: </h3>
 
 1) main.py
 
 - Responsável pela interação do usuário com o sistema. Ele apresenta um menu de opções que permite adicionar, visualizar, atualizar e excluir produtos do estoque. Utiliza a biblioteca tabulate para exibir os dados de forma organizada e legível. O sistema permanece em execução até que o usuário escolha sair.
 
+<br>
 2) crud.py
 
 - O "coração" do projeto. Contém todas as funcionalidades do CRUD (Create, Read, Update, Delete):
@@ -22,6 +24,7 @@
 
 - - Salvar e Carregar Dados: Os dados são armazenados e lidos de um arquivo JSON, garantindo a persistência das informações.
 
+<br>
 <h3> 🛠 Tecnologias e Conceitos Utilizados </h3>
 
 - Manipulação de JSON – Persistência de dados de forma estruturada.
@@ -36,8 +39,9 @@
 
 - Entrada e Saída de Dados – Interação com o usuário por meio de input() e print().
 
-🚀 Habilidades Aplicadas
-
+<br><br>
+<h3>🚀 Habilidades Aplicadas </h3>
+<br>
 ✅ Lógica de Programação – Implementação de operações CRUD com fluxos lógicos bem definidos.
 
 ✅ Organização e Estrutura do Código – Uso de classes e funções para facilitar a manutenção.
@@ -47,7 +51,7 @@
 ✅ Tratamento de Erros – Validação de entradas para evitar problemas na execução do programa.
 
 ✅ Melhoria na Experiência do Usuário – Interface textual clara e intuitiva.
-
+<br>
 📌 Exemplo de Execução do Sistema
 
 ![](./img/image.png)
