@@ -1,33 +1,32 @@
-import json
 import random
 import string
 from tabulate import tabulate
+from ArmazenamentoDeDados import ArmazenamentoDeDados
 
 class crud:
-  def __init__(self, arquivo = "estoque.json"):
-    self.arquivo = arquivo
-    self.carregar_dados()
-  
-  def carregar_dados(self):
-    try:
-      with open(self.arquivo, "r") as file:
-          self.estoque = json.load(file)
-    except FileNotFoundError:
-      self.estoque = []
-
-  def salvar_dados(self):
-    with open(self.arquivo, "w") as file:
-        json.dump(self.estoque, file, indent=4, ensure_ascii=False)
-
+  database = ArmazenamentoDeDados() # v1.5 -> salvamento e carregamento de dados, agora, neste arquivo
   def gerar_id(self) -> str:
-      letras = ''.join(random.choices(string.ascii_uppercase, k=2))
-      numeros = ''.join(random.choices(string.digits, k=4))   
-      return letras + numeros 
+    letras = numeros = ''
+    letras = ''.join(random.choices(string.ascii_uppercase, k=2))
+    numeros = ''.join(random.choices(string.digits, k=4))   
+    return letras + numeros 
   
   def adicionar_produto(self):
     nome_produto = input("Digite o nome do produto: ")
-    quantidade_produto = int(input("Digite a quantidade do produto: "))
-    valor_produto = float(input("Digite o valor do produto: "))
+    # v1.5 -> Adicionado um Try/Except apenas onde envolve números. Antes, quebrava o código em caso de ValueError.
+    quantidade_produto = input("Digite a quantidade do produto: ")
+    try: # -> v1.5
+      quantidade_produto = int(quantidade_produto)
+    except ValueError:
+      print("Erro. Tente novamente. Digite apenas números.")
+      return;
+    
+    valor_produto = input("Digite o valor do produto: ")
+    try: # -> v1.5
+      valor_produto = int(valor_produto)
+    except ValueError:
+      print("Erro. Tente novamente. Digite apenas números.")
+      return;
     
     produto_adicionado = {
       "id": self.gerar_id(),
@@ -36,25 +35,25 @@ class crud:
       "valor": valor_produto
     }
     
-    self.estoque.append(produto_adicionado)
-    self.salvar_dados()
+    self.database.estoque.append(produto_adicionado)
+    self.database.salvar_dados()
     
     print(f"Produto adicionado com sucesso! ID: {produto_adicionado['id']}")
 
   def visualizar_produtos(self):
-    if not self.estoque:
+    if not self.database.estoque:
       print("Nenhum produto na lista, ainda...")
       return;
     else:
       tabela = [
         [item["id"], item["nome"], item["quantidade"], f"R$ {item["valor"]:.2f}"]
-        for item in self.estoque
+        for item in self.database.estoque
       ]
       print(tabulate(tabela, headers=["ID", "Nome", "Quantidade", "Preço"], tablefmt="grid"))
   
   def atualizar_produto(self):
     id_informado = input("Digite o ID do produto que deseja atualizar: ").upper()
-    produto = next((item for item in self.estoque if id_informado == item["id"]), None)
+    produto = next((item for item in self.database.estoque if id_informado == item["id"]), None)
     
     if not produto:
       print("Produto não encontrado. Verifique se ele existe ou se o ID está correto.")
@@ -75,7 +74,7 @@ class crud:
         print("Escolha apenas uma opção válida. Tente novamente.")
         return;
       
-      novo_valor = input(f"Novo valor para {campo}: ")
+      novo_valor = input(f"Novo valor para '{campo}': ")
       
       if campo == "quantidade":
         novo_valor = int(novo_valor)
@@ -85,7 +84,7 @@ class crud:
         novo_valor = str(novo_valor)
       
       produto[campo] = novo_valor
-      self.salvar_dados()
+      self.database.salvar_dados()
       print("Produto atualizado com sucesso!")
       
   def deletar_produto(self):
