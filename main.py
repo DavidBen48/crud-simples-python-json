@@ -1,9 +1,8 @@
 from crud import crud;
 from tabulate import tabulate;
 
-def main(title: str = "== Controle de Estoques do Ben =="):
-  sistema = crud()
-  while True:
+def main(sistema: crud = crud(), title: str = "== Controle de Estoques do Ben =="):   
+ while True:      
     menu_de_opcoes = [
       ["1", "Adicionar Produto"],
       ["2", "Visualizar Produtos Existentes"],
@@ -41,6 +40,5 @@ def main(title: str = "== Controle de Estoques do Ben =="):
     else:
       print("Por Favor, escolha uma opção correta.")
         
-
 if __name__ == "__main__":
   main();

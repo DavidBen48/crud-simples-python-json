@@ -90,7 +90,7 @@ class crud:
       
   def deletar_produto(self):
     id_informado = input("ID do produto a ser excluído: ").upper()
-    produto = next((item for item in self.estoque if item['id'] == id_informado), None)
+    produto = next((item for item in self.database.estoque if item['id'] == id_informado), None)
     if not produto:
         print("Produto não encontrado.")
         return
@@ -98,8 +98,8 @@ class crud:
     confirm = input(f"Tem certeza que deseja excluir o produto '{produto['nome']}'? [1] sim | [2] Não: ").lower()
     
     if confirm == "1":
-      self.estoque.remove(produto)
-      self.salvar_dados()
+      self.database.estoque.remove(produto)
+      self.database.salvar_dados()
       print("Produto excluído com sucesso!")
     else: 
       print(f"Ação cancelada por:\n1- Desistência\n2- Escolheu errado")
@@ -108,7 +108,7 @@ class crud:
   def sair_do_sistema(self):
     print("Você está saindo do sistema.")
     print("Carregando...")
-    print("0%...")
-    print("50%...")
+    self.database.salvar_dados() # v1.5 -> salva, agora, de verdade, os dados antes de encerrar o programa.
     print("99%...")
+    self.database.salvar_dados() # v1.5 -> confirmação de salvamento
     print("Prontinho! Todos os produtos foram salvos. Ao voltar, tudo ainda estará no estoque, se houver itens.")
