@@ -10,17 +10,17 @@
 
 2) crud.py
 
-O "coração" do projeto. Contém todas as funcionalidades do CRUD (Create, Read, Update, Delete):
+- O "coração" do projeto. Contém todas as funcionalidades do CRUD (Create, Read, Update, Delete):
 
-- Adicionar Produto: Recebe dados do usuário, gera um ID aleatório para o produto e o salva no arquivo JSON.
+- - Adicionar Produto: Recebe dados do usuário, gera um ID aleatório para o produto e o salva no arquivo JSON.
 
-- Visualizar Produtos: Exibe todos os produtos cadastrados em formato de tabela.
+- - Visualizar Produtos: Exibe todos os produtos cadastrados em formato de tabela.
 
-- Atualizar Produto: Permite alterar nome, quantidade ou preço de um produto.
+- - Atualizar Produto: Permite alterar nome, quantidade ou preço de um produto.
 
-- Excluir Produto: Remove um produto do estoque após confirmação do usuário.
+- - Excluir Produto: Remove um produto do estoque após confirmação do usuário.
 
-- Salvar e Carregar Dados: Os dados são armazenados e lidos de um arquivo JSON, garantindo a persistência das informações.
+- - Salvar e Carregar Dados: Os dados são armazenados e lidos de um arquivo JSON, garantindo a persistência das informações.
 
 <h3> 🛠 Tecnologias e Conceitos Utilizados </h3>
 
