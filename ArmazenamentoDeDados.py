@@ -1,5 +1,5 @@
 # versão 1.5 -> separar os módulos que faz armazenar os dados para um arquivo próprio
-import json
+import json;
 class ArmazenamentoDeDados:
   def __init__(self, arquivo = "estoque.json"):
     self.arquivo = arquivo

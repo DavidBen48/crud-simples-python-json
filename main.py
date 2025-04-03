@@ -1,4 +1,4 @@
-from GerenciamentoDeEstoque import GerenciamentoDeEstoque
+from GerenciamentoDeEstoque import GerenciamentoDeEstoque;
 from tabulate import tabulate;
 
 def main(sistema: GerenciamentoDeEstoque = GerenciamentoDeEstoque(), title: str = "== Controle de Estoques do Ben ==") -> any:   
