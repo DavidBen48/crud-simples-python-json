@@ -30,9 +30,9 @@ Ao iniciar o sistema, o usuário terá acesso ao seguinte menu:
 ```
 == Controle de Estoques do Ben ==
 =================================
-+----+------------------------------------+
++-------+---------------------------------+
 | Opção | Descrição                       |
-+----+------------------------------------+
++-------+---------------------------------+
 |   1   | Adicionar Produto               |
 |   2   | Visualizar Produtos Existentes  |
 |   3   | Atualizar Dados de Um Produto   |
