@@ -1,57 +1,97 @@
-<h1> === SISTEMA CRUD BÁSICO === </h1>
-<br>
-O Sistema CRUD Básico é um projeto simples, mas eficiente, que permite gerenciar um estoque de produtos de forma intuitiva. Ele foi desenvolvido utilizando Python e JSON, garantindo a persistência dos dados mesmo após o fechamento do programa.
+# 🏪 Controle de Estoques do Ben 📦
 
-<br>
-<h3> Foram utilizados dois arquivos principais: </h3>
+## 📜 Descrição
 
-1) main.py
+Este é um sistema simples de controle de estoque desenvolvido em Python, utilizando conceitos de Programação Orientada a Objetos (POO). O sistema permite adicionar, visualizar, atualizar e excluir produtos de um estoque armazenado em um arquivo JSON. 📂
 
-- Responsável pela interação do usuário com o sistema. Ele apresenta um menu de opções que permite adicionar, visualizar, atualizar e excluir produtos do estoque. Utiliza a biblioteca tabulate para exibir os dados de forma organizada e legível. O sistema permanece em execução até que o usuário escolha sair.
+## 📁 Estrutura do Projeto
 
-<br>
-2) crud.py
+```
+/estoque
+│-- main.py 🖥️
+│-- crud.py 🔄
+│-- ArmazenamentoDeDados.py 💾
+│-- estoque.json (gerado automaticamente) 📜
+```
 
-- O "coração" do projeto. Contém todas as funcionalidades do CRUD (Create, Read, Update, Delete):
+### 📌 Arquivos
 
-- - Adicionar Produto: Recebe dados do usuário, gera um ID aleatório para o produto e o salva no arquivo JSON.
+- **main.py**: Responsável pela interface do usuário e interação com o sistema. 🖥️
+- **crud.py**: Contém a classe `crud` com os métodos de manipulação do estoque. 🔄
+- **ArmazenamentoDeDados.py**: Responsável pelo carregamento e salvamento de dados no arquivo JSON. 💾
+- **estoque.json**: Arquivo onde os dados dos produtos são armazenados. 📜
 
-- - Visualizar Produtos: Exibe todos os produtos cadastrados em formato de tabela.
+## ⚙️ Funcionalidades
 
-- - Atualizar Produto: Permite alterar nome, quantidade ou preço de um produto.
+### 📜 Menu Principal
 
-- - Excluir Produto: Remove um produto do estoque após confirmação do usuário.
+Ao iniciar o sistema, o usuário terá acesso ao seguinte menu:
 
-- - Salvar e Carregar Dados: Os dados são armazenados e lidos de um arquivo JSON, garantindo a persistência das informações.
+```
+== Controle de Estoques do Ben ==
+=================================
++-------+---------------------------------+
+| Opção | Descrição                       |
++-------+---------------------------------+
+|   1   | Adicionar Produto               |
+|   2   | Visualizar Produtos Existentes  |
+|   3   | Atualizar Dados de Um Produto   |
+|   4   | Deletar Um Produto              | 
+|   0   | Sair do Sistema                 |
++----+------------------------------------+
+```
 
-<br>
-<h3> 🛠 Tecnologias e Conceitos Utilizados </h3>
+### 🔹 Opções do Usuário
 
-- Manipulação de JSON – Persistência de dados de forma estruturada.
+1. **➕ Adicionar Produto**
 
-- Funções e Classes – Modularização do código para maior organização e reutilização.
+   - Solicita nome, quantidade e valor do produto. 🏷️
+   - Gera um ID automático. 🔢
+   - Salva no arquivo JSON. 💾
 
-- Tabulate – Exibição de informações em formato de tabela.
+2. **📋 Visualizar Produtos Existentes**
 
-- Tratamento de Erros – Uso de try/except para prevenir falhas com entradas inválidas.
+   - Exibe uma tabela com ID, nome, quantidade e preço dos produtos. 📊
+   - Informa caso não haja produtos cadastrados. ⚠️
 
-- Geração de ID Aleatório – Cria identificadores únicos para os produtos.
+3. **✏️ Atualizar Dados de Um Produto**
 
-- Entrada e Saída de Dados – Interação com o usuário por meio de input() e print().
+   - Permite alterar nome, quantidade ou preço de um produto. 🔄
+   - Exige um ID válido para edição. 🔍
 
-<br><br>
-<h3>🚀 Habilidades Aplicadas </h3>
-<br>
-✅ Lógica de Programação – Implementação de operações CRUD com fluxos lógicos bem definidos.
+4. **❌ Deletar Um Produto**
 
-✅ Organização e Estrutura do Código – Uso de classes e funções para facilitar a manutenção.
+   - Solicita confirmação antes de excluir um produto. ⚠️
+   - Remove o produto do estoque e salva as alterações. 🗑️
 
-✅ Manipulação de Arquivos – Armazenamento e leitura de dados de um arquivo JSON.
+5. **🚪 Sair do Sistema**
 
-✅ Tratamento de Erros – Validação de entradas para evitar problemas na execução do programa.
+   - Salva automaticamente os produtos antes de sair. ✅
 
-✅ Melhoria na Experiência do Usuário – Interface textual clara e intuitiva.
-<br>
-📌 Exemplo de Execução do Sistema
+## ▶️ Como Executar o Projeto
 
-![](./img/image.png)
+1. Certifique-se de ter o Python instalado (≥ 3.8). 🐍
+2. Instale as dependências necessárias:
+   ```bash
+   pip install tabulate
+   ```
+3. Execute o arquivo `main.py`:
+   ```bash
+   python main.py
+   ```
+
+## 📌 Requisitos
+
+- Python 3.8+ 🐍
+- Biblioteca `tabulate` 🛠️
+
+## 🚀 Melhorias Futuras
+
+- Implementação de uma interface gráfica. 🖥️
+- Melhor validação dos inputs dos usuários. ✅
+- Adição de filtros para busca de produtos. 🔍
+
+## ✨ Autor
+
+David Ben ✍️ Copyright | 2025 | Declaro que o modelo do projeto foi 100% pensado por mim, sem me basear em algum outro projeto.
+
