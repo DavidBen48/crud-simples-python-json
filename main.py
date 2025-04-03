@@ -1,7 +1,7 @@
-from crud import crud;
+from GerenciamentoDeEstoque import GerenciamentoDeEstoque
 from tabulate import tabulate;
 
-def main(sistema: crud = crud(), title: str = "== Controle de Estoques do Ben =="):   
+def main(sistema: GerenciamentoDeEstoque = GerenciamentoDeEstoque(), title: str = "== Controle de Estoques do Ben ==") -> any:   
  while True:      
     menu_de_opcoes = [
       ["1", "Adicionar Produto"],

@@ -3,7 +3,7 @@ import string
 from tabulate import tabulate
 from ArmazenamentoDeDados import ArmazenamentoDeDados
 
-class crud:
+class GerenciamentoDeEstoque:
   database = ArmazenamentoDeDados() # v1.5 -> salvamento e carregamento de dados, agora, neste arquivo
   def gerar_id(self) -> str:
     letras = numeros = ''
