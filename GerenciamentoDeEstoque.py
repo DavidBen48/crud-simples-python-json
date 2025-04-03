@@ -35,25 +35,25 @@ class GerenciamentoDeEstoque:
       "valor": valor_produto
     }
     
-    self.database.estoque.append(produto_adicionado)
-    self.database.salvar_dados()
+    self.database._estoque.append(produto_adicionado)
+    self.database._salvar_dados()
     
     print(f"Produto adicionado com sucesso! ID: {produto_adicionado['id']}")
 
   def visualizar_produtos(self):
-    if not self.database.estoque:
+    if not self.database._estoque:
       print("Nenhum produto na lista, ainda...")
       return;
     else:
       tabela = [
         [item["id"], item["nome"], item["quantidade"], f"R$ {item["valor"]:.2f}"]
-        for item in self.database.estoque
+        for item in self.database._estoque
       ]
       print(tabulate(tabela, headers=["ID", "Nome", "Quantidade", "Preço"], tablefmt="grid"))
   
   def atualizar_produto(self):
     id_informado = input("Digite o ID do produto que deseja atualizar: ").upper()
-    produto = next((item for item in self.database.estoque if id_informado == item["id"]), None)
+    produto = next((item for item in self.database._estoque if id_informado == item["id"]), None)
     
     if not produto:
       print("Produto não encontrado. Verifique se ele existe ou se o ID está correto.")
@@ -84,12 +84,12 @@ class GerenciamentoDeEstoque:
         novo_valor = str(novo_valor)
       
       produto[campo] = novo_valor
-      self.database.salvar_dados()
+      self.database._salvar_dados()
       print("Produto atualizado com sucesso!")
       
   def deletar_produto(self):
     id_informado = input("ID do produto a ser excluído: ").upper()
-    produto = next((item for item in self.database.estoque if item['id'] == id_informado), None)
+    produto = next((item for item in self.database._estoque if item['id'] == id_informado), None)
     if not produto:
         print("Produto não encontrado.")
         return
@@ -97,8 +97,8 @@ class GerenciamentoDeEstoque:
     confirm = input(f"Tem certeza que deseja excluir o produto '{produto['nome']}'? [1] sim | [2] Não: ").lower()
     
     if confirm == "1":
-      self.database.estoque.remove(produto)
-      self.database.salvar_dados()
+      self.database._estoque.remove(produto)
+      self.database._salvar_dados()
       print("Produto excluído com sucesso!")
     else: 
       print(f"Ação cancelada por:\n1- Desistência\n2- Escolheu errado")
@@ -107,7 +107,7 @@ class GerenciamentoDeEstoque:
   def sair_do_sistema(self):
     print("Você está saindo do sistema.")
     print("Carregando...")
-    self.database.salvar_dados() # v1.5 -> salva, agora, de verdade, os dados antes de encerrar o programa.
+    self.database._salvar_dados() # v1.5 -> salva, agora, de verdade, os dados antes de encerrar o programa.
     print("99%...")
-    self.database.salvar_dados() # v1.5 -> confirmação de salvamento
+    self.database._salvar_dados() # v1.5 -> confirmação de salvamento
     print("Prontinho! Todos os produtos foram salvos. Ao voltar, tudo ainda estará no estoque, se houver itens.")

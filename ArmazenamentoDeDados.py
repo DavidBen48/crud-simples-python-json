@@ -3,15 +3,15 @@ import json
 class ArmazenamentoDeDados:
   def __init__(self, arquivo = "estoque.json"):
     self.arquivo = arquivo
-    self.carregar_dados()
+    self._carregar_dados()
   
-  def carregar_dados(self):
+  def _carregar_dados(self):
     try:
       with open(self.arquivo, "r") as file:
-          self.estoque = json.load(file)
+          self._estoque = json.load(file)
     except FileNotFoundError:
-      self.estoque = []
+      self._estoque = []
 
-  def salvar_dados(self):
+  def _salvar_dados(self):
     with open(self.arquivo, "w") as file:
-        json.dump(self.estoque, file, indent=4, ensure_ascii=False)
+        json.dump(self._estoque, file, indent=4, ensure_ascii=False)
