@@ -9,7 +9,7 @@ Este é um sistema simples de controle de estoque desenvolvido em Python, utiliz
 ```
 /estoque
 │-- main.py 🖥️
-│-- crud.py 🔄
+│-- GerenciamentoDeEstoque.py 🔄
 │-- ArmazenamentoDeDados.py 💾
 │-- estoque.json (gerado automaticamente) 📜
 ```
@@ -17,7 +17,7 @@ Este é um sistema simples de controle de estoque desenvolvido em Python, utiliz
 ### 📌 Arquivos
 
 - **main.py**: Responsável pela interface do usuário e interação com o sistema. 🖥️
-- **crud.py**: Contém a classe `crud` com os métodos de manipulação do estoque. 🔄
+- **GerenciamentoDeEstoque.py**: Contém a classe `GerenciamentoDeEstoque` com os métodos de manipulação do estoque. 🔄
 - **ArmazenamentoDeDados.py**: Responsável pelo carregamento e salvamento de dados no arquivo JSON. 💾
 - **estoque.json**: Arquivo onde os dados dos produtos são armazenados. 📜
 
