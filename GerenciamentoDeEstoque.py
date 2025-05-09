@@ -10,7 +10,7 @@ class GerenciamentoDeEstoque:
     letras = ''.join(random.choices(string.ascii_uppercase, k=2))
     numeros = ''.join(random.choices(string.digits, k=4))   
     return letras + numeros 
-  
+   
   # v1.5
   def adicionar_produto(self):
     while True:
