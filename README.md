@@ -5,7 +5,7 @@
 Este é um sistema simples de controle de estoque desenvolvido em Python, utilizando conceitos de Programação Orientada a Objetos (POO). O sistema permite adicionar, visualizar, atualizar e excluir produtos de um estoque armazenado em um arquivo JSON. 📂
 
 ## 📁 Estrutura do Projeto
-
+ 
 ```
 /estoque
 │-- main.py 🖥️
